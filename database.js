@@ -2,9 +2,9 @@ const mysql = require('mysql');
 
 var connection = mysql.createConnection({
 	host: 'localhost',
-	database: 'simglab.com',
+	database: 'simglabcom',
 	user: 'root',
-	password: 'simgadmin'
+	password: 'Simg@'
 });
 
 connection.connect(function (error) {
