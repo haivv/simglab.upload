@@ -15,18 +15,18 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Dumping database structure for simglab.com
+-- Dumping database structure for simglabcom
 CREATE DATABASE IF NOT EXISTS `simglabcom` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
-USE `simglab.com`;
+USE `simglabcom`;
 
--- Dumping structure for table simglab.com.category
+-- Dumping structure for table simglabcom.category
 CREATE TABLE IF NOT EXISTS `category` (
   `cat_id` int(11) NOT NULL AUTO_INCREMENT,
   `cat_title` text NOT NULL,
   PRIMARY KEY (`cat_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table simglab.com.category: ~5 rows (approximately)
+-- Dumping data for table simglabcom.category: ~5 rows (approximately)
 INSERT INTO `category` (`cat_id`, `cat_title`) VALUES
 	(1, 'Heavy Equipment Simulator'),
 	(2, 'Safety Training/Accident Experience'),
@@ -34,7 +34,7 @@ INSERT INTO `category` (`cat_id`, `cat_title`) VALUES
 	(4, 'Shipbuilding Industry'),
 	(5, 'Culture/Tourism');
 
--- Dumping structure for table simglab.com.client
+-- Dumping structure for table simglabcom.client
 CREATE TABLE IF NOT EXISTS `client` (
   `client_id` int(11) NOT NULL AUTO_INCREMENT,
   `client_name` varchar(70) DEFAULT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `client` (
   PRIMARY KEY (`client_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table simglab.com.client: ~19 rows (approximately)
+-- Dumping data for table simglabcom.client: ~19 rows (approximately)
 INSERT INTO `client` (`client_id`, `client_name`, `client_logo`, `client_number`) VALUES
 	(1, 'Daegu Polytechnic College', '2024-06-11_대구공업대학교.jpg', 1),
 	(2, 'University of Ulsan', '2024-06-11_울산대학교.jpg', 2),
@@ -65,7 +65,7 @@ INSERT INTO `client` (`client_id`, `client_name`, `client_logo`, `client_number`
 	(20, 'Hyundai Heavy Industries', '2024-06-11_현대중공업-1.jpg', NULL),
 	(21, 'Volvo Korea', '2024-06-11_볼보코리아.jpg', NULL);
 
--- Dumping structure for table simglab.com.contact_form
+-- Dumping structure for table simglabcom.contact_form
 CREATE TABLE IF NOT EXISTS `contact_form` (
   `contact_form_ID` int(11) NOT NULL AUTO_INCREMENT,
   `contact_form_name` varchar(50) DEFAULT NULL,
@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `contact_form` (
   PRIMARY KEY (`contact_form_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table simglab.com.contact_form: ~9 rows (approximately)
+-- Dumping data for table simglabcom.contact_form: ~9 rows (approximately)
 INSERT INTO `contact_form` (`contact_form_ID`, `contact_form_name`, `contact_form_email`, `contact_form_phone`, `contact_form_company`, `contact_form_subject`, `contact_form_message`, `contact_form_date`) VALUES
 	(2, 'jh', 'hghg@ggfg.com', 'h', 'hg', 'hg', 'hg', '	2024-06-18'),
 	(3, 'Vu Van Hai', 'hghg@ggfg.com', '01043182709', 'jh', 'jh', '', '	2024-06-18'),
@@ -90,7 +90,7 @@ INSERT INTO `contact_form` (`contact_form_ID`, `contact_form_name`, `contact_for
 	(11, 'test', 'test@gmail.com', '01043182709', 'Hai', 'test', 'submit', '	2024-06-18'),
 	(12, 'ggf', 'gffdfd@g.com', 'gf', 'gf', 'gf', 'gf', '2024-06-18');
 
--- Dumping structure for table simglab.com.news
+-- Dumping structure for table simglabcom.news
 CREATE TABLE IF NOT EXISTS `news` (
   `news_id` int(11) NOT NULL AUTO_INCREMENT,
   `news_title` text DEFAULT NULL,
@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   PRIMARY KEY (`news_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table simglab.com.news: ~27 rows (approximately)
+-- Dumping data for table simglabcom.news: ~28 rows (approximately)
 INSERT INTO `news` (`news_id`, `news_title`, `news_content`, `news_date`, `news_cover_image`) VALUES
 	(13, 'Military excavator simulator delivery', 'Military excavator simulator delivery', '2016-12-01', '2024-06-11_Military excavator simulator delivery.jpg'),
 	(14, 'Bangudae Petroglyph Augmented Reality Content Development', 'Bangudae Petroglyph Augmented Reality Content Development', '2018-01-08', '2024-06-11_Bangudae Petroglyph Augmented Reality Content Development.png'),
@@ -130,7 +130,7 @@ INSERT INTO `news` (`news_id`, `news_title`, `news_content`, `news_date`, `news_
 	(38, 'Supplied Inje Military Forklift PC Simulator', 'Supplied Inje Military Forklift PC Simulator', '2022-06-30', '2024-06-11_Supplied Inje Military Forklift PC Simulator.jpg'),
 	(39, 'Development of VR-based transporter simulator', 'Development of VR-based transporter simulator', '2024-06-11', '2024-06-11_Development of VR-based transporter simulator.jpg');
 
--- Dumping structure for table simglab.com.patcer
+-- Dumping structure for table simglabcom.patcer
 CREATE TABLE IF NOT EXISTS `patcer` (
   `patcer_id` int(11) NOT NULL AUTO_INCREMENT,
   `patcer_name` varchar(50) DEFAULT NULL,
@@ -139,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `patcer` (
   PRIMARY KEY (`patcer_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table simglab.com.patcer: ~10 rows (approximately)
+-- Dumping data for table simglabcom.patcer: ~13 rows (approximately)
 INSERT INTO `patcer` (`patcer_id`, `patcer_name`, `patcer_img`, `patcer_date`) VALUES
 	(1, '조달청 벤처나라 지정증서', '2024-06-11_조달청-벤처나라-지정증서.jpg', NULL),
 	(2, '기업부설창작연구소 인정서', '2024-06-11_기업부설창작연구소-인정서.jpg', NULL),
@@ -152,7 +152,7 @@ INSERT INTO `patcer` (`patcer_id`, `patcer_name`, `patcer_img`, `patcer_date`) V
 	(10, '소프트웨어품질인증서-VR조립훈련솔루션', '2024-06-11_소프트웨어품질인증서-VR조립훈련솔루션.jpg', NULL),
 	(11, '소프트웨어품질인증서-굴삭기면허실기시뮬레이터VR', '2024-06-11_소프트웨어품질인증서-굴삭기면허실기시뮬레이터VR.jpg', NULL);
 
--- Dumping structure for table simglab.com.product
+-- Dumping structure for table simglabcom.product
 CREATE TABLE IF NOT EXISTS `product` (
   `pro_id` int(11) NOT NULL AUTO_INCREMENT,
   `cat_id` int(11) DEFAULT NULL,
@@ -163,7 +163,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   CONSTRAINT `product_ibfk_1` FOREIGN KEY (`cat_id`) REFERENCES `category` (`cat_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table simglab.com.product: ~9 rows (approximately)
+-- Dumping data for table simglabcom.product: ~9 rows (approximately)
 INSERT INTO `product` (`pro_id`, `cat_id`, `pro_title`, `pro_content`) VALUES
 	(1, 1, 'Excavator Simulator', '-'),
 	(2, 1, 'Forklift Simulator', '-'),
@@ -175,7 +175,7 @@ INSERT INTO `product` (`pro_id`, `cat_id`, `pro_title`, `pro_content`) VALUES
 	(8, 1, 'Forklift Simulator 2', '<ul><li><br></li><li>test menu</li></ul><p><br></p><p><img src="/public/uploadEditor/2024-06-14_desktop.png"></p>'),
 	(10, 1, 'Test 06-17', '<ul><li>Test 1</li><li>Test 2</li><li>Test 3</li></ul><p><br></p><p><br></p><p><img src="/public/uploadEditor/2024-06-21_213_우회전금지@4x-100.jpg"></p><p><br></p>');
 
--- Dumping structure for table simglab.com.slideshow
+-- Dumping structure for table simglabcom.slideshow
 CREATE TABLE IF NOT EXISTS `slideshow` (
   `slideshow_id` int(11) NOT NULL AUTO_INCREMENT,
   `slideshow_title` varchar(50) DEFAULT NULL,
@@ -186,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `slideshow` (
   PRIMARY KEY (`slideshow_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table simglab.com.slideshow: ~6 rows (approximately)
+-- Dumping data for table simglabcom.slideshow: ~6 rows (approximately)
 INSERT INTO `slideshow` (`slideshow_id`, `slideshow_title`, `slideshow_summary`, `slideshow_img`, `slideshow_hidden`, `slideshow_date`) VALUES
 	(1, 'Home page', 'Home page', '<p><img src="/public/uploadSlideshow/2024-06-21_211_진입금지@4x-100.jpg"><img src="/public/uploadSlideshow/2024-06-21_205_이륜자동차및원동기장치자전거통행금지@4x-100.jpg"></p>', NULL, NULL),
 	(2, 'Product - product 1 page', 'Product - product 1 page', '<p><img src="/public/uploadSlideshow/2024-06-21_308_직진및우회전@4x-100.jpg"><img src="/public/uploadSlideshow/2024-06-21_207_경운기트랙터및손수레통행금지@4x-100.jpg"><img src="/public/uploadSlideshow/2024-06-21_305_직진@4x-100.jpg"><img src="/public/uploadSlideshow/2024-06-21_216_유턴금지@4x-100.jpg"></p>', NULL, NULL),
@@ -195,7 +195,7 @@ INSERT INTO `slideshow` (`slideshow_id`, `slideshow_title`, `slideshow_summary`,
 	(5, 'test 1', 'test 1', '<p><img src="/public/uploadSlideshow/2024-06-20_223_차간거리확보@4x-100.jpg"></p>', NULL, '2024-06-21'),
 	(7, 'Product', 'Product', '<p><img src="/public/uploadSlideshow/2024-06-21_img_product_5-1-900x680.png"><img src="/public/uploadSlideshow/2024-06-21_img_product_3-2-900x680.png"><img src="/public/uploadSlideshow/2024-06-21_img_product_1-2-900x680.png"></p>', NULL, '2024-06-21');
 
--- Dumping structure for table simglab.com.user
+-- Dumping structure for table simglabcom.user
 CREATE TABLE IF NOT EXISTS `user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `username` text NOT NULL,
@@ -203,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table simglab.com.user: ~2 rows (approximately)
+-- Dumping data for table simglabcom.user: ~2 rows (approximately)
 INSERT INTO `user` (`user_id`, `username`, `password`) VALUES
 	(1, 'admin2', 'Simg@123'),
 	(2, 'admin', 'e10adc3949ba59abbe56e057f20f883e');
