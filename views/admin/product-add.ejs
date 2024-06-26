@@ -1,0 +1,176 @@
+<%- include('header') %>
+  <script>
+    // Add file
+    function addFileShow() {
+
+      var modal = document.getElementById("addfile");
+      modal.style.display = "block";
+    }
+    function closeBoxAddfile() {
+      var modal = document.getElementById("addfile");
+      modal.style.display = "none";
+    }
+
+    function hideAddFile() {
+
+      var modal = document.getElementById("addfile");
+
+      modal.style.display = "none";
+
+      var fileInput = document.getElementById('myfile');
+      var fileName = fileInput.files[0].name;
+
+      document.getElementById("news_cover_image").value = fileName;
+      document.fsubmitfile.submit();
+    }
+    function checkall() {
+      const pro_titleInput = document.getElementById("pro_title");
+      var countOfCheck = 0;
+      // if ((document.getElementById('searchoption').value != "op1") && (document.getElementById('searchoption').value != "op2") && (document.getElementById('searchoption').value != "op3") && (document.getElementById('searchoption').value != "op4") && (document.getElementById('searchoption').value != "op5")) {
+      //   var modal = document.getElementById("checkSelect");
+      //   modal.style.display = "block";
+      //   countOfCheck += 1;
+      //   return false;
+      // }
+
+
+      if (pro_titleInput.value.length == 0) {
+        pro_titleInput.style.border = "1px solid red";
+        pro_titleInput.focus();
+        document.getElementById('pro_title_err').innerHTML = "※ 필수.";
+        countOfCheck += 1;
+        return false;
+      } else {
+        pro_titleInput.style.border = "1px solid #D0D0D0";
+        document.getElementById('pro_title_err').innerHTML = "";
+      }
+    }
+
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+
+      const pro_titleInput = document.getElementById("pro_title");
+
+
+      //input for username
+      pro_titleInput.addEventListener("input", function () {
+        if (pro_titleInput.value.length == 0) {
+          pro_titleInput.style.border = "1px solid red";
+          pro_titleInput.focus();
+          document.getElementById('pro_title_err').innerHTML = "※ 필수.";
+          countOfCheck += 1;
+          return false;
+        } else {
+          pro_titleInput.style.border = "1px solid #D0D0D0";
+          document.getElementById('pro_title_err').innerHTML = "";
+        }
+      });
+    });
+
+    function checkSubmit() {
+      if (checkall() == false) {
+
+      } else {
+        saveContent();
+      }
+    }
+
+
+
+  </script>
+  <link rel="stylesheet" href="/public/stylesheets/admin/Quill.css">
+
+
+
+
+  <!-- Content -->
+  <div class="container mt-4 box-heigh1000">
+    <h1 class="pt-3">
+      <%= title %>
+    </h1>
+
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <!-- <tr>
+            
+            <th >Username</th>
+            <th >Password</th>
+
+          </tr> -->
+        </thead>
+        <tbody>
+          <form method="post" action="/admin/product-proAdd">
+            <tr>
+              <td class="">
+                <label for="product_category">Category</label>
+              </td>
+              <td class="">
+                <select class="form-select" id="selectOption" name="selectOption">
+                  <% let i=1; dataCate.forEach(function(category) { %>
+                    <option value="<%= category.cat_id %>">
+                      <%= category.cat_title %>
+                    </option>
+
+                    <%} );%>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td class="">
+                <label for="pro_title">Title</label>
+              </td>
+              <td class="">
+                <input type="text" placeholder="Type title " class="form-control" id="pro_title"
+                  name="pro_title" required />
+                <span class="error" id="pro_title_err"> </span>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td class="">
+                <label for="product_content">Content</label>
+              </td>
+              <td class="">
+                <div id="trinhsoanthao">
+                  <div id="editor"></div>
+
+                  <script src="/public/javascripts/admin/Quill.js">
+
+                  </script>
+                </div>
+
+                <!-- <input type="text" id="charCount"> -->
+                <!-- <span id="charCount">0</span>
+                <span id="filenumber">0</span> -->
+
+
+
+    </div>
+
+    </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <span class="error" id="repasserr"> </span>
+        <button type="button" class="btn btn-primary mt-3" onclick="checkSubmit()">Submit</button>
+        <a class="btn btn-danger mt-3" href="/admin/product">
+          <i class="fas fa-times"></i> Cancel
+        </a>
+
+      </td>
+    </tr>
+
+
+    </form>
+
+    </tbody>
+    </table>
+  </div>
+
+  </div>
+  </div>
+
+  <%- include('footer') %>

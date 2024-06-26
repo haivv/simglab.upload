@@ -1,0 +1,141 @@
+<%- include('header') %>
+  <script>
+    
+    function checkall() {
+      const slideshow_title = document.getElementById("slideshow_title");
+      var countOfCheck = 0;
+
+      if (slideshow_title.value.length == 0) {
+        slideshow_title.style.border = "1px solid red";
+        slideshow_title.focus();
+        document.getElementById('slideshow_title_err').innerHTML = "※ 필수.";
+        countOfCheck += 1;
+        return false;
+      } else {
+        slideshow_title.style.border = "1px solid #D0D0D0";
+        document.getElementById('slideshow_title_err').innerHTML = "";
+      }
+    }
+
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+
+      const slideshow_title = document.getElementById("slideshow_title");
+      //input for username
+      slideshow_title.addEventListener("input", function () {
+        if (slideshow_title.value.length == 0) {
+          slideshow_title.style.border = "1px solid red";
+          slideshow_title.focus();
+          document.getElementById('slideshow_title_err').innerHTML = "※ 필수.";
+          countOfCheck += 1;
+          return false;
+        } else {
+          slideshow_title.style.border = "1px solid #D0D0D0";
+          document.getElementById('slideshow_title_err').innerHTML = "";
+        }
+      });
+    });
+
+    function checkSubmit() {
+      if (checkall() == false) {
+
+      } else {
+        saveContent();
+      }
+    }
+
+
+
+  </script>
+  <link rel="stylesheet" href="/public/stylesheets/admin/Quill.css">
+
+
+
+
+  <!-- Content -->
+  <div class="container mt-4 box-heigh1000">
+    <h1 class="pt-3">
+      <%= title %>
+    </h1>
+
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <!-- <tr>
+            
+            <th >Username</th>
+            <th >Password</th>
+
+          </tr> -->
+        </thead>
+        <tbody>
+          <form>
+            <%  dataSlideShow.forEach(function(slideshow) { %>
+            <tr>
+              <td class="">
+                <label for="slideshow_title">Title</label>
+              </td>
+              <td class="">
+                <input type="text" placeholder="Type title " class="form-control" id="slideshow_title"
+                  name="slideshow_title" required value="<%= slideshow.slideshow_title %>" />
+                <span class="error" id="slideshow_title_err"> </span>
+              </td>
+            </tr>
+            <tr>
+              <td class="">
+                <label for="slideshow_summary">Summary</label>
+              </td>
+              <td class="">
+                <input type="text" placeholder="Type summary " class="form-control" id="slideshow_summary"
+                  name="slideshow_summary" required  value="<%= slideshow.slideshow_summary %>" />
+                <span class="error" id="slideshow_summary_err"> </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="">
+                <label for="">Images</label>
+              </td>
+              <td class="">
+                <div id="trinhsoanthao">
+                  <div id="editor"><%- slideshow.slideshow_img %></div>
+                  <script src="/public/javascripts/admin/Quill_Slideshow_Update.js">
+
+                  </script>
+                  
+                </div>
+
+                <!-- <input type="text" id="charCount"> -->
+                <!-- <span id="charCount">0</span>
+                <span id="filenumber">0</span> -->
+
+
+
+    </div>
+
+    </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <span class="error" id="repasserr"> </span>
+        <input type="hidden" name="slideshow_id" id="slideshow_id" value="<%= slideshow.slideshow_id %>"/>
+        <button type="button" class="btn btn-primary mt-3" onclick="checkSubmit()">Submit</button>
+        <a class="btn btn-danger mt-3" href="/admin/slide-show">
+          <i class="fas fa-times"></i> Cancel
+        </a>
+
+      </td>
+    </tr>
+<% });%>
+
+    </form>
+
+    </tbody>
+    </table>
+  </div>
+
+  </div>
+  </div>
+
+  <%- include('footer') %>

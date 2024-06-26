@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    테스트
+  </title>
+
+  <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+  <link rel='stylesheet' href='/stylesheets/font-awesome.min.css' />
+  <link rel="shortcut icon" type="image/png" href="/images/logo1.png">
+
+  <script>
+
+    function checkEmpty() {
+      const txtuserInput = document.getElementById("txtuser");
+      const txtpassInput = document.getElementById("txtpass");
+      var countClick = 0;
+      if ((txtuserInput.value.length == 0) && (txtpassInput.value.length == 0)) {
+        txtuserInput.focus();
+      }
+
+      if (txtuserInput.value.length == 0) {
+        txtuserInput.style.border = "1px solid red";
+        txtuserInput.focus();
+        document.getElementById('usererr').innerHTML = "※ 필수.";
+        countClick += 1;
+      } else {
+        txtuserInput.style.border = "1px solid #D0D0D0";
+        document.getElementById('usererr').innerHTML = "";
+      }
+
+      if (txtpassInput.value.length == 0) {
+        txtpassInput.style.border = "1px solid red";
+        txtpassInput.focus();
+        document.getElementById('passerr').innerHTML = "※ 필수.";
+        countClick += 1;
+      }
+      else {
+        txtpassInput.style.border = "1px solid #D0D0D0";
+        document.getElementById('passerr').innerHTML = "";
+      }
+
+      if (countClick > 0) {
+
+      } else {
+        document.flogin.submit();
+      }
+    }
+
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+
+      const txtuserInput = document.getElementById("txtuser");
+      const txtpassInput = document.getElementById("txtpass");
+      const checkButton = document.getElementById("check-button");
+
+
+      //input for username
+      txtuserInput.addEventListener("input", function () {
+        const txtuserValue = txtuserInput.value.trim()
+        if (txtuserValue === "") {
+          txtuserInput.style.border = "1px solid red";
+          document.getElementById('usererr').innerHTML = "※ 필수.";
+          return false;
+        }
+
+        else {
+          txtuserInput.style.border = "1px solid  #00B247";
+          document.getElementById('usererr').innerHTML = "";
+        }
+      });
+
+
+      //input for password
+      txtpassInput.addEventListener("input", function () {
+        const txtpassValue = txtpassInput.value.trim()
+        if (txtpassValue === "") {
+          txtpassInput.style.border = "1px solid red";
+          document.getElementById('passerr').innerHTML = "※ 필수.";
+
+        }
+        else {
+          txtpassInput.style.border = "1px solid  #00B247";
+          document.getElementById('passerr').innerHTML = "";
+        }
+      });
+
+
+
+      checkButton.addEventListener("click", function () {
+        var countClick = 0;
+
+        //click for username
+
+        const txtuserValue = txtuserInput.value.trim()
+        if (txtuserValue === "") {
+          txtuserInput.style.border = "1px solid red";
+          document.getElementById('usererr').innerHTML = "※ 필수.";
+          countClick += 1;
+        }
+        else {
+          txtuserInput.style.border = "1px solid  #D0D0D0";
+          document.getElementById('usererr').innerHTML = "";
+        }
+
+
+        //click for password
+
+
+        const txtpassValue = txtpassInput.value.trim()
+
+        if (txtpassValue === "") {
+          txtpassInput.style.border = "1px solid red";
+          document.getElementById('passerr').innerHTML = "※ 필수.";
+          countClick += 1;
+
+        } else {
+          txtpassInput.style.border = "1px solid  #D0D0D0";
+          document.getElementById('passerr').innerHTML = "";
+        }
+        if (countClick == 0) {
+          document.flogin.submit();
+        }
+      });
+
+
+
+
+      //keypress for name and email
+      document.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+          checkEmpty();
+        }
+
+
+      });
+
+
+
+    });
+
+
+
+  </script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    @font-face {
+      font-family: Pretendard;
+      src: url(/font/Pretendard-Light.woff);
+    }
+
+    body {
+      background: #1d212b;
+      font-family: Pretendard;
+      color: white;
+    }
+
+    #topbutton {
+      width: 120px;
+      height: 48px;
+      margin-top: 100px;
+      margin-right: 20px;
+      padding-top: 12px;
+      position: absolute;
+    }
+
+    .float-right {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: right;
+    }
+
+    #form-login {
+      width: 450px;
+      min-height: 500px;
+      margin: auto;
+      padding-top: 150px;
+    }
+
+    h1 {
+      font-size: 50px;
+      font-weight: 700;
+      color: white;
+      font-family: Pretendard;
+      padding-top: 100px;
+    }
+
+    p {
+      line-height: 50px;
+      margin-bottom: 50px;
+      font-size: 21.33px;
+    }
+
+    .btnSize {
+      width: 450px;
+      height: 72px;
+
+      border-radius: 5px;
+      font-size: 20px;
+      padding: 0px 20px;
+      border: 0px;
+    }
+
+    .btn-black {
+      background: black;
+      color: white;
+    }
+
+    .btn-custom:active,
+    .btn-custom:hover,
+    .btn-custom:focus {
+      background-color: #313131;
+    }
+
+    .error {
+
+      color: #F65633;
+      position: relative;
+      top: -5px;
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+
+    #footer {
+      width: 100%;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      margin-top: 100px;
+    }
+
+    #footer img {
+      width: 120px;
+    }
+
+    .btnAction {
+      width: 100%;
+    }
+
+    .resize {
+      width: 50%;
+      height: 60px;
+    }
+
+    .btnAction {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btnAction a {
+      line-height: 50px;
+
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+
+
+    <div id="form-login">
+      <h1>로그인 </h1>
+
+      <form action="/admin/check-login" name="flogin" method="post">
+
+        <input type="text" name="txtuser" id="txtuser" class="btnSize mt-2 mb-2 " placeholder="유저 입력">
+        <span class="error" id="usererr"> </span>
+
+        <input type="password" name="txtpass" id="txtpass" class="btnSize mt-2 mb-2" placeholder="비밀번호 입력">
+        <span class="error" id="passerr"> </span>
+        <span class="error" id="passerr"> </span>
+
+        <div class="btnAction">
+          <!-- <a href="/register" class="btn btn-primary resize" id="check-button">회원가입</a> -->
+          <button type="button" class="btn btn-black resize" id="check-button" onclick="checkEmpty()">로그인</button>
+        </div>
+    </div>
+
+
+    </form>
+
+  </div>
+
+
+
+
+
+  </div>
+
+
+</body>
+
+</html>

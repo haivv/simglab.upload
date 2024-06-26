@@ -1,0 +1,76 @@
+<%- include('header') %>
+
+    <script>
+        function showcheckDelete(cat_id) {
+            // alert(cat_id);
+            var cssID = "checkDelete" + cat_id;
+            var modal = document.getElementById(cssID);
+            modal.style.display = "block";
+        }
+
+        function hidecheckDelete(cat_id) {
+           
+            var cssID = "checkDelete" + cat_id;
+            var modal = document.getElementById(cssID);
+            modal.style.display = "none";
+          
+        }
+    </script>
+
+
+
+
+    <!-- Content -->
+    <div class="container mt-4 box-heigh1000">
+        <h1 class="pt-3"><%= title %></h1>
+        <div class="container d-flex justify-content-end">
+            <a class="btn btn-primary mb-3 col-2 " href="/admin/cat-add">
+                <i class="fas fa-plus"></i> Add Category
+            </a>
+        </div>
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th id="cate_col1" scope="col">Category ID</th>
+                        <th id="cate_col2" scope="col">Category Title</th>
+                        <th id="cate_col3" scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% let i=1; dataCate.forEach(function(category) { let cat_id=category.cat_id; %>
+                        <tr>
+                            <td>
+                                <%= i %>
+                            </td>
+                            <td>
+                                <%= category.cat_title %>
+                            </td>
+                            <td>
+                                <a class="btn btn-sm btn-warning" href="/admin/cat_edit/<%= category.cat_id %>">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                                <a class="btn btn-sm btn-danger" onclick="showcheckDelete('<%= category.cat_id %>');">
+                                    <i class="fas fa-trash-alt"></i> Delete
+                                </a>
+
+                            </td>
+                        </tr>
+
+                        <!-- message confirm delete  -->
+                        <div id='checkDelete<%= category.cat_id %>' class='modalmess-content'>
+                            <div class=''>
+                                <p class="p-5 d-flex ">삭제 확인하세요?</p>
+                                <p class="p-3 d-flex flex-row-reverse ">
+                                    <a href='#' onclick="hidecheckDelete('<%= category.cat_id %>');" class='btn btn-primary '>취소</a>&nbsp;
+                                    <a href="/admin/cat_delete/<%=  category.cat_id %>" class='btn btn-danger '>확인 </a>
+                                </p>
+                        </div>
+                        <% i++; }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+
+    <%- include('footer') %>

@@ -1,0 +1,126 @@
+<%- include('header') %>
+
+    <script>
+        function showcheckDelete(pro_id) {
+            // alert(cat_id);
+            var cssID = "checkDelete" + pro_id;
+            var modal = document.getElementById(cssID);
+            modal.style.display = "block";
+        }
+
+        function hidecheckDelete(pro_id) {
+
+            var cssID = "checkDelete" + pro_id;
+            var modal = document.getElementById(cssID);
+            modal.style.display = "none";
+
+        }
+    </script>
+
+
+
+
+    <!-- Content -->
+    <div class="container mt-4 box-heigh1000">
+        <h1 class="pt-3">
+            <%= title %>
+        </h1>
+        <div class="container d-flex justify-content-end">
+            <a class="btn btn-primary mb-3 col-2 " href="/admin/product-add">
+                <i class="fas fa-plus"></i> Add Product
+            </a>
+        </div>
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th id="product_col1">No.</th>
+                        <th id="product_col2">Category</th>
+                        <th id="productt_col3">Product Title</th>
+
+                        <th id="product_col5">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% let num=1; dataProduct.forEach(function(product) { let pro_id=product.pro_id; %>
+                        <tr>
+                            <td>
+                                <%= num %>
+                            </td>
+                            <td>
+                                <% let show_cate_name='' ; if(product.cat_id==1){
+                                    show_cate_name='Heavy Equipment Simulator' }else if (product.cat_id==2){
+                                    show_cate_name='Safety Training/Accident Experience' } else if (product.cat_id==3){
+                                    show_cate_name='Manufacturing' } else if (product.cat_id==4){
+                                    show_cate_name='Shipbuilding Industry' } else{ show_cate_name='Culture/Tourism' }
+                                %>
+
+                                <%= show_cate_name %>
+
+                            </td>
+                            <td>
+                                <%= product.pro_title %>
+                            </td>
+
+                            <td>
+                                <a class="btn btn-sm btn-warning" href="/admin/product_edit/<%= product.pro_id  %>">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                                <a class="btn btn-sm btn-danger" onclick="showcheckDelete('<%= product.pro_id  %>');">
+                                    <i class="fas fa-trash-alt"></i> Delete
+                                </a>
+                            </td>
+                        </tr>
+
+                        <!-- message confirm delete  -->
+                        <div id='checkDelete<%= product.pro_id  %>' class='modalmess-content'>
+                            <div class=''>
+                                <p class="p-5 d-flex ">삭제 확인하세요?</p>
+                                <p class="p-3 d-flex flex-row-reverse">
+                                    <a href='#' onclick="hidecheckDelete('<%= product.pro_id %>');"
+                                        class='btn btn-primary '>취소</a>&nbsp;
+                                    <a href="/admin/product-delete/<%=  product.pro_id  %>" class='btn btn-danger '>확인
+                                    </a>
+                                </p>
+                            </div>
+                            <% num++; }); %>
+                </tbody>
+            </table>
+        </div>
+        <div class="container">
+            <ul class="pagination  justify-content-center">
+                <% if(page>=2){ %>
+                    <li class="page-item"><a class="page-link" id="paging-left" href="/admin/product/<%= page-1 %>"> 이전
+                        </a>
+                    </li>
+                    <% } <!--end if(page>=2)-->
+                        <!---mid link-->
+                        for(var i=1; i<=total_pages ; i++){ if (i==page) { %>
+                            <li class="page-item active"><a class="page-link" id="paging-left"
+                                    href="/admin/product/<%= i %>">
+                                    <%= i %>
+                                </a></li>
+                            <% } else{ %>
+
+                                <li class="page-item "><a class="page-link" id="paging-left"
+                                        href="/admin/product/<%= i %>">
+                                        <%= i %>
+                                    </a></li>
+                                <% } }<!--end for-->
+
+
+                                    if(page < total_pages){page++; %>
+
+                                        <li class="page-item"><a class="page-link" id="paging-left"
+                                                href="/admin/product/<%= page %>">
+                                                다음
+                                            </a></li>
+
+                                        <% } %>
+
+            </ul>
+        </div><!--container paging-->
+    </div>
+    </div>
+
+    <%- include('footer') %>

@@ -1,0 +1,48 @@
+<%- include('header') %>
+<script src="/javascripts/checkRegister.js"></script>
+  <!-- Content -->
+  <div class="container mt-4 box-heigh1000">
+    <h1 class="pt-3"><%= title %></h1>
+    
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            
+            <th >Username</th>
+            <th >Password</th>
+
+          </tr>
+        </thead>
+        <tbody>
+            <form method="post" action="/admin/user-proAdd"  name="fuser_add">
+            <tr>
+              <td class="user_col">
+                <input type="text" placeholder="Type user " class="form-control" id="txtuser" name="txtuser"  />
+                <span class="error" id="usererr"> </span>
+              </td>
+              <td class="user_col">
+                <input type="password" placeholder="Type password " class="form-control" id="txtpass" name="txtpass"  />
+                <span class="error" id="passerr"> </span>
+              </td>
+            </tr>
+
+            <tr >
+              <td colspan="2">
+                <span class="error" id="repasserr"> </span>
+                <p class="text-danger"><%= mes %></p>
+                <input type="hidden" name="form_name" id="form_name" value="fuser_add">
+                <button type="button" id="check-button" class="btn btn-primary  mt-3 btnSize" >Submit</button>
+ 
+              </td>
+            </tr>
+          </form>
+          
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  </div>
+
+  <%- include('footer') %>

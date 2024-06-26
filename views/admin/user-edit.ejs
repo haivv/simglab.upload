@@ -1,0 +1,54 @@
+<%- include('header') %>
+<script src="/javascripts/checkRegister.js"></script>
+  <!-- Content -->
+  <div class="container mt-4 box-heigh1000">
+    <h1 class="pt-3"><%= title %></h1>
+    
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            
+            <th class="user_col">Username</th>
+            <th class="user_col">Password</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <% let i=1; dataUser.forEach(function(user) { %>
+            <form method="post" action="/admin/user_proUpdate" name="fuser_edit">
+              <tr>
+                <td >
+                  <input type="text" placeholder="Type user " class="form-control" id="txtuser" name="txtuser" value="<%= user.username %>" readonly />
+                  <span class="error" id="usererr"> </span>
+                </td>
+                <td class="user_col">
+                  <input type="password" placeholder="Type password " class="form-control" id="txtpass" name="txtpass"  />
+                  <span class="error" id="passerr"> </span>
+                </td>
+              </tr>
+              
+              <tr >
+                <td colspan="2">
+                  <span class="error" id="repasserr"> </span>
+                  <p class="text-danger"><%= mes %></p>
+
+                  <input type="hidden" name="form_name" id="form_name" value="fuser_edit">
+                  <input type="hidden" name="user_id" value="<%= user.user_id %>"/>
+
+                  <button type="button" id="check-button" class="btn btn-primary  mt-3 btnSize" > <i class="fas fa-check"></i> Submit</button>
+                  <a class="btn btn-danger mt-3" href="/admin/user">
+                    <i class="fas fa-times"></i> Cancel
+                  </a>
+                </td>
+              </tr>
+          </form>
+            <% i++; }); %>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  </div>
+
+  <%- include('footer') %>

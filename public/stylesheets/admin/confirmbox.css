@@ -1,0 +1,84 @@
+
+.inputfile + label {
+    /* max-width: 80%; */
+    padding-bottom: 3px;
+    /* 20px */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+ 
+}
+
+
+.inputfile-6 + label {
+    border: 1px solid #c7c7c7;
+    width: 98.5%;
+    float: right;
+    border-radius: 0px 5px 5px 0px;
+    /* background-color: #f1e5e6; */
+    
+    
+}
+
+
+
+.inputfile-6 + label span{
+    padding-left: 10px;
+    line-height: 35px;
+}
+
+.inputfile-6 + label span {
+    min-height: 2em;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: top;
+}
+
+
+
+
+
+#filebutton{
+    
+    width: 100%;
+    height: 30px !important;
+    background: #2d23b9;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+    margin-left: 10px;
+    
+}
+
+
+
+
+.inputfile{
+    display: none !important;
+}
+/* btn select file */
+.btnfile{
+    width: 110px;
+    height: 40px;
+    background: #e9ecef;
+    color: #414040;
+    line-height: 40px;
+    text-align: left;
+    font-weight: 200;
+    float: left;
+    cursor: pointer;
+    border: 1px solid #ced4da;
+    padding-left: 15px;
+    border-radius: 5px 0px 0px 5px;
+}
+
+label{
+    float:left;
+}
+
+
+

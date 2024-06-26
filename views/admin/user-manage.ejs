@@ -1,0 +1,75 @@
+<%- include('header') %>
+
+    <script>
+        function showcheckDelete(user_id) {
+            // alert(cat_id);
+            var cssID = "checkDelete" + user_id;
+            var modal = document.getElementById(cssID);
+            modal.style.display = "block";
+        }
+
+        function hidecheckDelete(user_id) {
+           
+            var cssID = "checkDelete" + user_id;
+            var modal = document.getElementById(cssID);
+            modal.style.display = "none";
+          
+        }
+    </script>
+
+
+
+
+    <!-- Content -->
+    <div class="container mt-4 box-heigh1000">
+        <h1 class="pt-3"><%= title %></h1>
+        <div class="container d-flex justify-content-end">
+            <a class="btn btn-primary mb-3 col-2 " href="/admin/user-add">
+                <i class="fas fa-plus"></i> Add User
+            </a>
+        </div>
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th id="cate_col1" scope="col">No.</th>
+                        <th id="cate_col2" scope="col">Username</th>
+                        <th id="cate_col3" scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% let i=1; dataUser.forEach(function(user) { let cat_id=user.user_id; %>
+                        <tr>
+                            <td>
+                                <%= i %>
+                            </td>
+                            <td>
+                                <%= user.username %>
+                            </td>
+                            <td>
+                                <a class="btn btn-sm btn-warning" href="/admin/user_edit/<%= user.user_id %>">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                                <a class="btn btn-sm btn-danger" onclick="showcheckDelete('<%= user.user_id %>');">
+                                    <i class="fas fa-trash-alt"></i> Delete
+                                </a>
+                            </td>
+                        </tr>
+
+                        <!-- message confirm delete  -->
+                        <div id='checkDelete<%= user.user_id %>' class='modalmess-content'>
+                            <div class=''>
+                                <p class="p-5 d-flex ">삭제 확인하세요?</p>
+                                <p class="p-3 d-flex flex-row-reverse">
+                                    <a href='#' onclick="hidecheckDelete('<%= user.user_id %>');" class='btn btn-primary '>취소</a>&nbsp;
+                                    <a href="/admin/user_delete/<%=  user.user_id %>" class='btn btn-danger '>확인 </a>
+                                </p>
+                        </div>
+                        <% i++; }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+
+    <%- include('footer') %>

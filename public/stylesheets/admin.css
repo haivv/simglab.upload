@@ -1,0 +1,308 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: Pretendard;
+    src: url(/font/Pretendard-Light.woff);
+}
+
+@font-face {
+    font-family: Pretendard-B;
+    src: url(/font/Pretendard-SemiBold.woff);
+}
+
+
+
+
+
+
+
+
+
+#topbutton img {
+    float: left;
+    width: 16px !important;
+    height: 16px !important;
+    margin-top: 2px;
+
+}
+
+
+
+#search-form {
+    min-height: 30px;
+    width: 50%;
+    float: left;
+}
+
+#txtSearch {
+    width: 400px;
+    height: 30px;
+    border: 1px solid #898989;
+    padding: 3px 10px;
+    float: left;
+    font-size: 12px;
+}
+
+#btnSearch {
+    width: 80px;
+    height: 30px;
+    background: black;
+    border-radius: 0px 5px 5px 0px;
+    float: left;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+    border: 0px;
+}
+
+#search-form a {
+    color: white;
+    text-decoration: none;
+}
+
+#action {
+    width: 450px;
+    height: 30px;
+    margin-right: 16px;
+    float: right;
+
+}
+
+.action {
+    width: 120px;
+    height: 30px;
+    background: black;
+    float: right;
+    margin-left: 20px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 4px;
+}
+.action-blue {
+    width: 120px;
+    height: 30px;
+    background: rgb(55, 158, 255);
+    float: right;
+    margin-left: 20px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 4px;
+}
+
+#action a {
+    color: white;
+    text-decoration: none;
+}
+
+.action img {
+    position: relative;
+    top: -3px;
+}
+
+thead {
+    line-height: 30px;
+}
+
+table tr:not(thead tr) {
+    height: 72px;
+}
+
+
+
+.btnView a {
+    width: 102px;
+    height: 30px;
+    background: #347EFF;
+    float: left;
+    color: white;
+    text-align: center;
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.page-item a {
+    font-size: 12px;
+}
+
+td {
+    vertical-align: middle;
+    margin: 0px;
+    padding: 0px 10px !important;
+    font-size: 14px;
+}
+
+/* mesagebox */
+.myModal {
+    z-index: 100;
+}
+
+.page-item {
+    z-index: 10 !important;
+}
+
+/* mess */
+.messBox {
+    font-size: 14px !important;
+    background-color: rgba(0, 0, 0, 0.2);
+    /* opacity: 0.5; */
+    display: none;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+}
+
+
+
+
+.col1 {
+    width: 10%;
+
+}
+
+.col2,
+.col3,
+.col4,
+.col5 {
+    width: 20%;
+}
+
+#myCheck {
+    position: relative;
+    left: 7px;
+}
+
+table {
+    border-top: 1px solid #898989;
+}
+
+.action-top {
+    width: 120px;
+    height: 48px;
+    border-radius: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    margin-left: 20px;
+
+}
+.action-main {
+    width: 102px;
+    height: 30px;
+    border-radius: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    margin-left: 20px;
+
+}
+
+
+.action-black {
+    background: #000000;
+    color: white;
+
+}
+.action-blue {
+    background: #015EFF;
+    color: white;
+
+}
+
+.action-white {
+    background: white;
+    color: black;
+}
+
+.action-top-image {
+    width: 16px;
+    height: 16px;
+    float: left;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-items: center;
+}
+.action-top-image img{
+    width: 12px;
+    height: 12px;
+    position: relative;
+    top: -2px;
+}
+.action-main-image {
+    width: 12px;
+    height: 12px;
+    float: left;
+   
+}
+
+
+#btnLogout{width: 120px; height: 48px;}
+
+.strQuiz {
+    font-size: 16px;
+    float: left;
+    margin-left: 5px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+.strLogout{
+    font-size: 16px;
+    float: left;
+    margin-left: 5px;
+    font-weight: bold;
+    color:#015EFF;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+
+    
+}
+.strAction {
+    font-size: 12px;
+    float: left;
+    margin-left: 5px;
+    font-weight: 700;
+}
+
+
+.btn-add-question {
+    width: 120px;
+    height: 30px;
+    margin-right: 8px;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+
+}
+
+.btn-size {
+    width: 120px;
+    height: 30px;
+}
+.tr-line-height{
+    height: 60px;
+  }
+
+  #stringSearch{
+    font-size: 12px;
+    position: relative;
+    top: -2px;
+    color: white;
+}
+#imgSearch{
+    position: relative;
+    top: -2px;
+}
+@media (max-width: 1000px) {}

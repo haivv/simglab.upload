@@ -1,0 +1,44 @@
+<%- include('header') %>
+
+    <!-- Content -->
+
+
+    <div class="container mt-4 box-heigh1000">
+        <h1 class="pt-3">
+            <%= title %>
+        </h1>
+        <% dataContact.forEach(function(contact) { %>
+
+            <p><strong>Contact Name: </strong> <span>
+                    <%= contact.contact_form_name %>
+                </span></p>
+            <p><strong>Email: </strong> <span>
+                    <%= contact.contact_form_email %>
+                </span></p>
+            <p><strong>Phone Number: </strong> <span>
+                    <%= contact.contact_form_phone %>
+                </span></p>
+            <p><strong>Company Name: </strong> <span>
+                    <%= contact.contact_form_company %>
+                </span></p>
+            <p><strong>Subject: </strong> <span>
+                    <%= contact.contact_form_subject %>
+                </span></p>
+
+            <p><strong>Date: </strong> <span>
+                    <%= contact.contact_form_date %>
+                </span></p>
+
+            <p><strong>Message: </strong></p>
+            <p>
+                <%= contact.contact_form_message %>
+            </p>
+
+
+            <a href="/admin/contact" type="button" class="btn btn-primary" id="check-button">Back to Manage
+                Page</a>
+            </form>
+            <% }); %>
+    </div>
+
+    <%- include('footer') %>

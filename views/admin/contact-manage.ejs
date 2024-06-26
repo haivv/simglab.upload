@@ -1,0 +1,124 @@
+<%- include('header') %>
+
+    <script>
+        function showcheckDelete(pro_id) {
+            // alert(cat_id);
+            var cssID = "checkDelete" + pro_id;
+            var modal = document.getElementById(cssID);
+            modal.style.display = "block";
+        }
+
+        function hidecheckDelete(contact_form_ID) {
+
+            var cssID = "checkDelete" + contact_form_ID;
+            var modal = document.getElementById(cssID);
+            modal.style.display = "none";
+
+        }
+    </script>
+
+
+
+
+    <!-- Content -->
+    <div class="container mt-4 box-heigh1000">
+        <h1 class="pt-3">
+            <%= title %>
+        </h1>
+
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th class="contact_col">Contact Name</th>
+                        <th class="contact_col">Email</th>
+                        <th class="contact_col">Company</th>
+                        <th class="contact_col">Date</th>
+                        <th class="contact_col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% let num=1; dataContact.forEach(function(contact) { let contact_form_ID=contact.contact_form_ID;
+                        %>
+                        <tr>
+                            <td>
+                                <%= num %>
+                            </td>
+                            <td>
+
+                                <%= contact.contact_form_name %>
+
+                            </td>
+                            <td>
+                                <%= contact.contact_form_email %>
+                            </td>
+                            <td>
+                                <%= contact.contact_form_company %>
+                            </td>
+                            <td>
+                                <%= contact.contact_form_date %>
+                            </td>
+
+                            <td>
+                                <a class="btn btn-sm btn-warning" href="/admin/contact-view/<%= contact_form_ID %>">
+                                    <i class="fas fa-eye"></i> View Detail
+                                </a>
+                                <a class="btn btn-sm btn-danger" onclick="showcheckDelete('<%= contact_form_ID  %>');">
+                                    <i class="fas fa-trash-alt"></i> Delete
+                                </a>
+                            </td>
+                        </tr>
+
+                        <!-- message confirm delete  -->
+                        <div id='checkDelete<%= contact_form_ID  %>' class='modalmess-content'>
+                            <div class=''>
+                                <p class="p-5 d-flex ">삭제 확인하세요?</p>
+                                <p class="p-3 d-flex flex-row-reverse">
+                                    <a href='#' onclick="hidecheckDelete('<%= contact_form_ID %>');"
+                                        class='btn btn-primary '>취소</a>&nbsp;
+                                    <a href="/admin/contact-delete/<%=  contact_form_ID  %>" class='btn btn-danger '>확인
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                            <% num++; }); %>
+                </tbody>
+            </table>
+        </div>
+        <div class="container">
+            <ul class="pagination  justify-content-center">
+                <% if(page>=2){ %>
+                    <li class="page-item"><a class="page-link" id="paging-left" href="/admin/contact/<%= page-1 %>"> 이전
+                        </a>
+                    </li>
+                    <% } <!--end if(page>=2)-->
+                        <!---mid link-->
+                        for(var i=1; i<=total_pages ; i++){ if (i==page) { %>
+                            <li class="page-item active"><a class="page-link" id="paging-left"
+                                    href="/admin/contact/<%= i %>">
+                                    <%= i %>
+                                </a></li>
+                            <% } else{ %>
+
+                                <li class="page-item "><a class="page-link" id="paging-left"
+                                        href="/admin/contact/<%= i %>">
+                                        <%= i %>
+                                    </a></li>
+                                <% } }<!--end for-->
+
+                                    if(page < total_pages){page++; %>
+
+                                        <li class="page-item"><a class="page-link" id="paging-left"
+                                                href="/admin/contact/<%= page %>">
+                                                다음
+                                            </a></li>
+
+                                        <% } %>
+
+            </ul>
+        </div><!--container paging-->
+    </div>
+    </div>
+
+    <%- include('footer') %>

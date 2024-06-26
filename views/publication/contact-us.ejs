@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    테스트
+  </title>
+
+  <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+  <link rel='stylesheet' href='/stylesheets/font-awesome.min.css' />
+  <link rel="shortcut icon" type="image/png" href="/images/logo1.png">
+
+  <script>
+    function isValidEmail(strEmail) {
+      var regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      return regex.test(strEmail);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const txtname = document.getElementById("txtname");
+      const txtemail = document.getElementById("txtemail");
+      const txtphone = document.getElementById("txtphone");
+      const txtcompany = document.getElementById("txtcompany");
+      const txtsubject = document.getElementById("txtsubject");
+      const checkButton = document.getElementById("check-button");
+
+      
+      
+
+      // Sự kiện input và blur cho txtname
+      txtname.addEventListener("input", validateName);
+      txtname.addEventListener("blur", validateName);
+
+      // Hàm validate cho txtname
+      function validateName() {
+        const txtnameValue = txtname.value.trim();
+        if (txtnameValue.length == 0) {
+          txtname.style.border = "1px solid red";
+          document.getElementById('nameerr').innerHTML = "This field is required.";
+        } else {
+          txtname.style.border = "1px solid #D0D0D0";
+          document.getElementById('nameerr').innerHTML = "";
+        }
+      }
+
+      // Sự kiện input và blur cho txtemail
+      txtemail.addEventListener("input", validateEmail);
+      txtemail.addEventListener("blur", validateEmail);
+
+      // Hàm validate cho txtemail
+      function validateEmail() {
+        const txtemailValue = txtemail.value.trim();
+        if (txtemailValue.length == 0) {
+          txtemail.style.border = "1px solid red";
+          document.getElementById('emailerr').innerHTML = "This field is required.";
+        } else {
+          if (isValidEmail(txtemailValue)) {
+            txtemail.style.border = "1px solid #D0D0D0";
+            document.getElementById('emailerr').innerHTML = "";
+          } else {
+            txtemail.style.border = "1px solid red";
+            document.getElementById('emailerr').innerHTML = "Please type your email.";
+          }
+        }
+      }
+
+      // Sự kiện input và blur cho txtphone
+      txtphone.addEventListener("input", validatePhone);
+      txtphone.addEventListener("blur", validatePhone);
+
+      // Hàm validate cho txtphone
+      function validatePhone() {
+        const txtphoneValue = txtphone.value.trim();
+        if (txtphoneValue.length == 0) {
+          txtphone.style.border = "1px solid red";
+          document.getElementById('phoneerr').innerHTML = "This field is required.";
+        } else {
+          txtphone.style.border = "1px solid #D0D0D0";
+          document.getElementById('phoneerr').innerHTML = "";
+        }
+      }
+
+      // Sự kiện input và blur cho txtcompany
+      txtcompany.addEventListener("input", validateCompany);
+      txtcompany.addEventListener("blur", validateCompany);
+
+      // Hàm validate cho txtcompany
+      function validateCompany() {
+        const txtcompanyValue = txtcompany.value.trim();
+        if (txtcompanyValue.length == 0) {
+          txtcompany.style.border = "1px solid red";
+          document.getElementById('companyerr').innerHTML = "This field is required.";
+        } else {
+          txtcompany.style.border = "1px solid #D0D0D0";
+          document.getElementById('companyerr').innerHTML = "";
+        }
+      }
+      // Sự kiện input và blur cho txtsubject
+      txtsubject.addEventListener("input", validateSubject);
+      txtsubject.addEventListener("blur", validateSubject);
+
+      // Hàm validate cho txtsubject
+      function validateSubject() {
+        const txtsubjectValue = txtsubject.value.trim();
+        if (txtsubjectValue.length == 0) {
+          txtsubject.style.border = "1px solid red";
+          document.getElementById('subjecterr').innerHTML = "This field is required.";
+        } else {
+          txtsubject.style.border = "1px solid #D0D0D0";
+          document.getElementById('subjecterr').innerHTML = "";
+        }
+      }
+
+
+
+
+
+
+      //  click event for Submit button
+      checkButton.addEventListener("click", function () {
+        var countClick = 0;
+        const txtnameValue = txtname.value.trim();
+        const txtemailValue = txtemail.value.trim();
+        const txtphoneValue = txtphone.value.trim();
+        const txtcompanyValue = txtcompany.value.trim();
+        const txtsubjectValue = txtsubject.value.trim();
+
+        // Check txtname
+        if (txtnameValue.length == 0) {
+          txtname.style.border = "1px solid red";
+          document.getElementById('nameerr').innerHTML = "This field is required.";
+          countClick += 1;
+        } else {
+          txtname.style.border = "1px solid #D0D0D0";
+          document.getElementById('nameerr').innerHTML = "";
+        }
+
+        // Check txtemail
+        if (txtemailValue.length == 0) {
+          txtemail.style.border = "1px solid red";
+          document.getElementById('emailerr').innerHTML = "This field is required.";
+          countClick += 1;
+        } else {
+          if (isValidEmail(txtemailValue)) {
+            txtemail.style.border = "1px solid #D0D0D0";
+            document.getElementById('emailerr').innerHTML = "";
+          } else {
+            txtemail.style.border = "1px solid red";
+            document.getElementById('emailerr').innerHTML = "Please type your email.";
+            countClick += 1;
+          }
+        }
+
+        // Check txtphone
+        if (txtphoneValue.length == 0) {
+          txtphone.style.border = "1px solid red";
+          document.getElementById('phoneerr').innerHTML = "This field is required.";
+          countClick += 1;
+        } else {
+          txtphone.style.border = "1px solid #D0D0D0";
+          document.getElementById('phoneerr').innerHTML = "";
+        }
+
+        // Check txtcompany
+        if (txtcompanyValue.length == 0) {
+          txtcompany.style.border = "1px solid red";
+          document.getElementById('companyerr').innerHTML = "This field is required.";
+          countClick += 1;
+        } else {
+          txtcompany.style.border = "1px solid #D0D0D0";
+          document.getElementById('companyerr').innerHTML = "";
+        }
+
+        // Check txtsubject
+        if (txtsubjectValue.length == 0) {
+          txtsubject.style.border = "1px solid red";
+          document.getElementById('subjecterr').innerHTML = "This field is required.";
+          countClick += 1;
+        } else {
+          txtsubject.style.border = "1px solid #D0D0D0";
+          document.getElementById('subjecterr').innerHTML = "";
+        }
+
+        // submit form
+        if (countClick == 0) {
+          document.fcontact.submit();
+        }
+      });
+
+    });
+  </script>
+  <style>
+    .error {
+      color: #F65633;
+      position: relative;
+    }
+
+    input:focus {
+      outline: none;
+    }
+  </style>
+
+</head>
+
+<body>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+ 
+  <div class="container mt-5">
+    <div class="container mt-5">
+      <h2>Contact Us</h2>
+      <form name="fcontact" method="post" action="/contactus-proAdd">
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="name">Your Name</label>
+            <input type="text" class="form-control" id="txtname" name="txtname" placeholder="Enter your name">
+            <span class="error" id="nameerr"> </span>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="email">Your Email</label>
+            <input type="email" class="form-control" id="txtemail" name="txtemail" placeholder="Enter your email">
+            <span class="error" id="emailerr"> </span>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="phone">Phone Number</label>
+            <input type="tel" class="form-control" id="txtphone" name="txtphone" placeholder="Enter your phone number">
+            <span class="error" id="phoneerr"> </span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="company">Company Name</label>
+            <input type="text" class="form-control" id="txtcompany" name="txtcompany"
+              placeholder="Enter your company name">
+            <span class="error" id="companyerr"> </span>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="txtsubject">Subject</label>
+            <input type="text" class="form-control" id="txtsubject" name="txtsubject" placeholder="Enter subject">
+            <span class="error" id="subjecterr"> </span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-12">
+            <label for="message">Message</label>
+            <textarea class="form-control" id="txtmessage" name="txtmessage" rows="4" placeholder="Enter your message"></textarea>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary" id="check-button">Submit</button>
+      </form>
+      <div class="text-center" id="mess-add"><%= mess %></div>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3166.0536209442416!2d126.89605400000002!3d37.483061!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9e24602d8f19%3A0x26ec77d87e8b96c4!2z7ISc7Jq47Yq567OE7IucIOq1rOuhnOq1rCDrlJTsp4DthLjroZwzMOq4uCAzMQ!5e0!3m2!1sko!2skr!4v1718686577796!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+  </div>
+</body>
+
+</html>

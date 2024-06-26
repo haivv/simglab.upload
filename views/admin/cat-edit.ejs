@@ -1,0 +1,38 @@
+<%- include('header') %>
+  <!-- Content -->
+  <div class="container mt-4 box-heigh1000">
+    <h1 class="pt-3">Category edit</h1>
+    
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            
+            <th id="cate_col2" scope="col">Cate Title</th>
+            <th id="cate_col3" scope="col">Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <% let i=1; dataCate.forEach(function(category) { %>
+            <form method="post" action="/admin/cat_proUpdate" name="">
+            <tr>
+              <td>
+                <input type="text" class="form-control" name="cat_title" required value="<%= category.cat_title %>"/>
+                <input type="hidden" name="cat_id" value="<%= category.cat_id %>"/>
+              </td>
+              <td>
+                <input type="submit" class="btn btn-sm btn-primary mt-1" value="Submit"/>
+ 
+              </td>
+            </tr>
+          </form>
+            <% i++; }); %>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  </div>
+
+  <%- include('footer') %>

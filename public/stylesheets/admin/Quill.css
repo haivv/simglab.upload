@@ -1,0 +1,57 @@
+#addfile {
+    display: none;
+  }
+
+  #myfile_left {
+    width: 83%;
+    height: 40px;
+  }
+
+  .ql-size {
+  font-size: inherit;
+}
+
+.ql-size.ql-picker {
+  width: 80px;  /* Điều chỉnh nếu cần */
+}
+
+.ql-size.ql-picker .ql-picker-label {
+  line-height: 1.5;
+  padding-right: 15px;
+}
+
+.ql-size.ql-picker .ql-picker-item {
+  line-height: 1.5;
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='12px']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='12px']::before {
+  content: '12px';
+}
+
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='16px']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='16px']::before {
+  content: '16px';
+}
+
+
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='20px']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='20px']::before {
+  content: '20px';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='24px']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='24px']::before {
+  content: '24px';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='28px']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='28px']::before {
+  content: '28px';
+}
+#editor{
+height: 500px;
+background: white;
+}

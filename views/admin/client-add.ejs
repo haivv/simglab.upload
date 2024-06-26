@@ -1,0 +1,127 @@
+<%- include('header') %>
+  <script>
+    // Add file
+    function addFileShow() {
+
+      var modal = document.getElementById("addfile");
+      modal.style.display = "block";
+    }
+    function closeBoxAddfile() {
+      var modal = document.getElementById("addfile");
+      modal.style.display = "none";
+    }
+
+    function hideAddFile() {
+
+      var modal = document.getElementById("addfile");
+
+      modal.style.display = "none";
+
+      var fileInput = document.getElementById('myfile');
+      var fileName = fileInput.files[0].name;
+
+      document.getElementById("client_logo").value = fileName;
+      document.fsubmitfile.submit();
+    }
+
+  </script>
+  <style>
+    #addfile {
+      display: none;
+    }
+
+    #myfile_left {
+      width: 83%;
+      height: 40px;
+    }
+
+  </style>
+
+  <!--show box to add file -->
+  <div id='addfile' class='messBox'>
+    <div class='modalmess-content d-flex flex-column p-4'>
+      <div><button class=" btn btn-dark  " onclick='closeBoxAddfile()'>X</button></div>
+      <p class="p-2 d-flex txtMess">원하는 이미지를 업로드해주세요. </p>
+      <div class="choosefile">
+        <form action="/admin/uploadfile" name="fsubmitfile" method="POST" enctype="multipart/form-data">
+          <input type="file" name="myfile" id="myfile" class="inputfile inputfile-6" accept="image/jpeg, image/png">
+
+          <label for="myfile" id="myfile_left"><span id="hidfile1"></span> </label>
+          <label for="myfile" id="myfile_select_btn">
+            <div class="btnfile" id="fileSelect"> 파일선택</div>
+          </label>
+          <script src="/javascripts/custom-file-input.js"></script>
+      </div>
+      <p class="d-flex flex-row-reverse">
+        <button class='btn btn-primary mt-3' onclick="hideAddFile()">업로드</button>
+        </form>
+      </p>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- Content -->
+  <div class="container mt-4 box-heigh1000">
+    <h1 class="pt-3">
+      <%= title %>
+    </h1>
+
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <!-- <tr>
+            
+            <th >Username</th>
+            <th >Password</th>
+
+          </tr> -->
+        </thead>
+        <tbody>
+          <form method="post" action="/admin/client-proAdd" >
+            <tr>
+              <td class="">
+                <label for="client_title">Client name</label>
+              </td>
+              <td class="">
+                <input type="text" placeholder="Type client name " class="form-control" id="client_name" name="client_name"
+                  required />
+              </td>
+            </tr>
+            
+
+            <tr>
+              <td class="">
+                <label for="client_logo">Client logo</label>
+              </td>
+              <td class="">
+
+                <span class="input-group-text strSize" id="inputGroup-sizing-default">이미지 &nbsp; <i class="fa fa-upload"
+                    style="font-size:18px" onclick="addFileShow()"></i></span>
+                <input type="text" class="form-control" name="client_logo" id="client_logo" readonly>
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2">
+                <span class="error" id="repasserr"> </span>
+
+
+                <input type="submit" class="btn btn-primary  mt-3 btnSize" value="Submit">
+
+              </td>
+            </tr>
+
+
+          </form>
+
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  </div>
+
+  <%- include('footer') %>

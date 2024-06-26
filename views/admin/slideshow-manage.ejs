@@ -1,0 +1,116 @@
+<%- include('header') %>
+
+    <script>
+        function showcheckDelete(slideshow_id) {
+            // alert(cat_id);
+            var cssID = "checkDelete" + slideshow_id;
+            var modal = document.getElementById(cssID);
+            modal.style.display = "block";
+        }
+
+        function hidecheckDelete(slideshow_id) {
+           
+            var cssID = "checkDelete" + slideshow_id;
+            var modal = document.getElementById(cssID);
+            modal.style.display = "none";
+          
+        }
+    </script>
+
+<style>
+    #small_img img{ height: 70px; margin-right: 10px;}
+</style>
+
+
+    <!-- Content -->
+    <div class="container mt-4 box-heigh1000">
+        <h1 class="pt-3"><%= title %></h1>
+        <div class="container d-flex justify-content-end">
+            <a class="btn btn-primary mb-3 col-2 " href="/admin/slideshow-add">
+                <i class="fas fa-plus"></i> Add Slide Show
+            </a>
+        </div>
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th id="client_col1" >No.</th>
+                        <th id="client_col2" >Slide Show Title</th>
+                        <th id="client_col3" >Slide Show Image</th>
+                      
+                        <th id="client_col5" >Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% let num=1; dataSlideShow.forEach(function(slieshow) { let slideshow_id=slieshow.slideshow_id; %>
+                        <tr>
+                            <td>
+                                <%= num %>
+                            </td>
+                            <td>
+                                <%= slieshow.slideshow_title %>
+                            </td>
+                            <td  id="small_img">
+                               <!-- <img src="/uploads/<%= slieshow.slideshow_img   %>" height="70px"/> -->
+                               <%- slieshow.slideshow_img %>
+                            </td>
+                           
+                            <td>
+                                <a class="btn btn-sm btn-warning" href="/slide-show/<%= slieshow.slideshow_id %>">
+                                    <i class="fas fa-eye"></i> View
+                                </a>
+                                <a class="btn btn-sm btn-warning" href="/admin/slide-show-edit/<%= slieshow.slideshow_id  %>">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                                <a class="btn btn-sm btn-danger" onclick="showcheckDelete('<%= slieshow.slideshow_id  %>');">
+                                    <i class="fas fa-trash-alt"></i> Delete
+                                </a>
+                            </td>
+                        </tr>
+
+                        <!-- message confirm delete  -->
+                        <div id='checkDelete<%= slieshow.slideshow_id  %>' class='modalmess-content'>
+                            <div class=''>
+                                <p class="p-5 d-flex ">삭제 확인하세요?</p>
+                                <p class="p-3 d-flex flex-row-reverse">
+                                    <a href='#' onclick="hidecheckDelete('<%= slieshow.slideshow_id %>');" class='btn btn-primary '>취소</a>&nbsp;
+                                    <a href="/admin/slide-show-delete/<%=  slieshow.slideshow_id  %>" class='btn btn-danger '>확인 </a>
+                                </p>
+                        </div>
+                        <% num++; }); %>
+                </tbody>
+            </table>
+        </div>
+        <div class="container">
+            <ul class="pagination  justify-content-center">
+              <% if(page>=2){ %>
+                <li class="page-item"><a class="page-link" id="paging-left" href="/admin/slide-show/<%= page-1 %>"> 이전
+                  </a>
+                </li>
+                <% } <!--end if(page>=2)-->
+                  <!---mid link-->
+                  for(var i=1; i<=total_pages ; i++){ if (i==page) { %>
+                    <li class="page-item active"><a class="page-link" id="paging-left" href="/admin/slide-show/<%= i %>">
+                        <%= i %>
+                      </a></li>
+                    <% } else{ %>
+    
+                      <li class="page-item "><a class="page-link" id="paging-left" href="/admin/slide-show/<%= i %>">
+                          <%= i %>
+                        </a></li>
+                      <% } }<!--end for-->
+    
+                        if(page < total_pages){page++; %>
+    
+                          <li class="page-item"><a class="page-link" id="paging-left" href="/admin/slide-show/<%= page %>">
+                              다음
+                            </a></li>
+    
+                          <% } %>
+    
+            </ul>
+          </div><!--container paging-->
+    </div>
+    </div>
+
+    <%- include('footer') %>
